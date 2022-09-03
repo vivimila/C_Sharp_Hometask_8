@@ -38,30 +38,35 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-//Console.WriteLine("");
+// Console.WriteLine("");
 
 void PrintMatrixReverse(int[,] matrix)
 {
-    int maxIndex = 0;
+    //int maxIndex = 0;
     for (int i = 0; i < matrix.GetLength(0); i++)
 
     {
         Console.Write("[");
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
+            for (int a = 0; a < matrix.GetLength(1) - 1; a++)
+            {
+                if (matrix[i, a] < matrix[i, a + 1])
+                {
+                    int newMatrix = matrix[i, a + 1];
+                    matrix[i, a + 1] = matrix[i, a];
+                    matrix[i, a] = newMatrix;
+                    a++;
+                }
+            }
             if (j < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j],4},");
             else Console.Write($"{matrix[i, j],4} ");
         }
         Console.WriteLine("]");
-        {
-            if (maxIndex > i) i--;
-            else i ++;
-        }
     }
-
 }
 
-int[,] Array2D = CreateMatrixRndInt(3, 4, 1, 40);
+int[,] Array2D = CreateMatrixRndInt(3, 4, 1,20);
 PrintMatrix(Array2D);
 Console.WriteLine("");
 PrintMatrixReverse(Array2D);
