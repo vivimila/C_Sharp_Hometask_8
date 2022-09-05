@@ -38,23 +38,8 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-// Console.WriteLine("");
-
-// void ReverseMatrix(int[,] matrix)
-// {
-// int temp = 0;
-// for (int j = 0; j < matrix.GetLength(1); j++)
-// {
-// temp = matrix[0,j];
-// matrix[0,j] = matrix[matrix.GetLength(0) - 1,j];
-// matrix[matrix.GetLength(0) - 1, j] = temp;
-// }
-// }
-
-
 void PrintMatrixReverse(int[,] matrix)
 {
-    //int maxIndex = 0;
     for (int i = 0; i < matrix.GetLength(0); i++)
 
     {
